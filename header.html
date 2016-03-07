@@ -1,0 +1,85 @@
+<template name="header">
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+      <!-- off-canvas title bar for 'small' screen -->
+      <div class="title-bar" data-responsive-toggle="widemenu" data-hide-for="medium">
+        <div class="title-bar-left">
+          <button class="menu-icon" type="button" data-open="offCanvasLeft"></button>
+          <span class="title-bar-title">jTable</span>
+        </div>
+        <div class="title-bar-right">
+          {{> right_nav}}
+        </div>
+      </div>
+
+      <!-- off-canvas left menu -->
+      <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
+        <ul class="vertical dropdown menu" data-dropdown-menu>
+          <li><a href="left_item_1">Left item 1</a></li>
+          <li><a href="left_item_2">Left item 2</a></li>
+          <li><a href="left_item_3">Left item 3</a></li>
+        </ul>
+      </div>
+
+      <!-- "wider" top-bar menu for 'medium' and up -->
+      <div id="widemenu" class="top-bar">
+        <div class="top-bar-left">
+          <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">{{>logo}}</li>
+            <li class="has-submenu">
+              <a href="#">Item 1</a>
+              <ul class="menu submenu vertical" data-submenu>
+                <li><a href="left_wide_11">Left wide 1</a></li>
+                <li><a href="left_wide_12">Left wide 2</a></li>
+                <li><a href="left_wide_13">Left wide 3</a></li>
+              </ul>
+            </li>
+            <li class="has-submenu">
+              <a href="#">Item 2</a>
+              <ul class="menu submenu vertical" data-submenu>
+                <li><a href="left_wide_21">Left wide 1</a></li>
+                <li><a href="left_wide_22">Left wide 2</a></li>
+                <li><a href="left_wide_23">Left wide 3</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          {{> right_nav}}
+        </div>
+      </div>
+
+      <!-- original content goes in this container -->
+      <div class="off-canvas-content" data-off-canvas-content>
+        {{> UI.contentBlock }}
+      </div>
+
+    <!-- close wrapper, no more content after this -->
+    </div>
+  </div>
+</template>
+
+
+<template name="right_nav">
+  <ul class="menu">
+    <li class="notifications"><i class="fa fa-bell"></i></li>
+    <li class="messages"><i class="fa fa-envelope"></i></li>
+    <li class="user-name">Adriana Schulz</li>
+    <li><img src="user_icon.jpg" class="user-icon" /></li>
+  </ul>
+</template>
+
+<template name="logo">
+    <div id="logo2" style="font-family: Arial;font-weight: bold;font-size:1.5em;">
+      <div id="table2" style="height: 0.15em;">
+        <span style="position: relative;width: 3em;height: 0.15em;width: 3em;">
+          <i style="position: absolute;display:inline-block;width:3em;height: 0.15em;background-color: #0F5B78;left:0em;top:0em"></i>
+          <i style="position: absolute;display:inline-block;width: 0.59em;height: 0.15em;background-color: #EF8B2C;left: 0.39em;top:0em;z-index: 2;"></i></span>
+      </div>
+      <div id="text2" style=" position:relative;margin-left: 0.1em;color: #0F5B78;margin-top: -0.234em;">
+      <div style="display: inline-block;position: relative;top: 0.15em;">j</div><div style="display: inline-block;">
+        <span style="color: #EF8B2C">T</span>able</div>
+      </div>
+  </div>
+</template>
