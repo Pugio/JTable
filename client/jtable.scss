@@ -42,10 +42,19 @@
 #header-block {
   height: 500px;
   width: 100%;
-  background-image: url("sabbath_pic.jpg");
+  background: url("sabbath_pic.jpg") no-repeat bottom center scroll;
   background-size: 100%;
   text-align: center;
   color: rgba(0, 0, 0, 1);
+
+  display: table;
+  height: auto;
+  padding: 100px 0;
+  background-color: #000;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 
   #select-an-option {
     padding-top: 50px;
