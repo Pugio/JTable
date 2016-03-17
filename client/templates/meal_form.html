@@ -1,0 +1,86 @@
+<template name="meal_form">
+  <div class="row">
+    <div class="small-offset-1 small-10 medium-offset-2 medium-8 large-offset-3 large-6 columns">
+      <form id="meal-form" style="display: none; opacity: 0;">
+        <div class="row">
+          <div class="large-6 columns">
+            <label>Date
+              <select>
+                <option value="husker">Friday, March 18</option>
+                <option value="starbuck">Saturday, March 19 </option>
+              </select>
+            </label>
+          </div>
+          <div class="large-6 columns">
+            <label>Meal
+              <select>
+                <option value="husker">Dinner</option>
+                <option value="starbuck">Lunch </option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-7 columns">
+            <label>Adress
+              <input type="text" placeholder="" />
+            </label>
+          </div>
+          <div class="large-2 columns">
+            <label>Apt
+              <input type="text" placeholder="" />
+            </label>
+          </div>
+          <div class="large-3 columns">
+           <label>Zip code
+              <input type="text" placeholder="" />
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-4 columns">
+          <label>Available Spots
+              <select>
+                <option value="husker">1</option>
+                <option value="starbuck">2</option>
+                <option value="hotdog">3</option>
+                <option value="apollo">4</option>
+                <option value="apollo">5</option>
+                <option value="apollo">6</option>
+                <option value="apollo">7</option>
+              </select>
+            </label>
+          </div>
+          <div class="large-4 columns">
+          <label>Starting time
+              <input type="text" placeholder="12:30pm" />
+            </label>
+          </div>
+          <div class="large-4 columns">
+            <label>Meal Type</label>
+            <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Meat</label>
+            <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Dairy</label>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="large-12 columns">
+            <label>Who can you accommodate? (check all the apply)</label>
+            <input id="checkbox1" type="checkbox"><label for="checkbox1">Babies</label>
+            <input id="checkbox2" type="checkbox"><label for="checkbox2">Kids</label>
+            <input id="checkbox3" type="checkbox"><label for="checkbox3">Vegetarias</label>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+            <label>Anything you'd like to inform your guests? (e.g. pets, if you there are a lot of stairs)
+              <textarea placeholder=""></textarea>
+            </label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
