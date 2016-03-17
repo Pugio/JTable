@@ -5,7 +5,9 @@
 <body onload="$(document).foundation();">
   {{#header}} <!-- This begins a wrapper/layout template. All nested code will appear at the UI.contentBlock section in the header template. -->
     {{> host_find_buttons }}
-    {{> meal_form }}
+    {{#if showMealForm }}
+      {{> meal_form}}
+    {{/if}}
   {{/header}}
 </body>
 
