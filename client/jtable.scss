@@ -51,12 +51,13 @@
     padding-top: 50px;
   }
 
+  $button-opacity: 0.8;
   #btn-host-a-meal {
-    background-color:rgba(58,219,118,0.5);
+    background-color:rgba(58,219,118,$button-opacity);
     color: #fff;
   }
   #btn-find-a-meal {
-    background-color:rgba(33,153,232,0.5);
+    background-color:rgba(33,153,232,$button-opacity);
     color: #fff;
   }
 
