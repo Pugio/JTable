@@ -1,19 +1,13 @@
 // counter starts at 0
 Session.setDefault('counter', 0);
 
-Template.hello.helpers({
-  counter: function () {
-    return Session.get('counter');
-  }
-});
-
-Template.hello.events({
+Template.host_find_buttons.events({
   'click button': function () {
-    // increment the counter when button is clicked
-    Session.set('counter', Session.get('counter') + 1);
-  }
-});
 
-Template.hello.onRendered(function () {
-  $(document).foundation();
+    var animation_props = { duration: 700, queue: false };
+    $('body').append('<div style="height: 700px"></div>'); // hack to extend page height, so we can scroll all the way to the form
+    
+    $("#meal-form").show().animate({'opacity':'1'}, animation_props);
+    $('html, body').animate({scrollTop: $("#meal-form").offset().top}, animation_props);
+  }
 });
