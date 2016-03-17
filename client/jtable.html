@@ -14,14 +14,11 @@
     <div class="row" id="select-an-option">
       <div class="small-offset-1 small-10 columns">
         <div id="main-page-title">JTable</div>
-        {{>logo}}
         <div id="main-page-subtitle">Your spot for Shabbat meals in Cambridge</div>
-        <h1>JTable</h1>
         
-        <h4>Your spot for Shabbat meals in Cambridge</h4>
         <div class="button-group" data-grouptype="OR">
-          <button href="#" class="large button primary radius" id="btn-host-a-meal">Host a Meal</button>
-          <button href="#" class="large button success radius" id="btn-find-a-meal">Find a Meal</button>
+          <button id='btn-host-a-meal' href="#" class="large button primary radius">Host a Meal</button>
+          <button id='btn-find-a-meal' href="#" class="large button success radius">Find a Meal</button>
         </div>
       </div>
     </div>
@@ -31,7 +28,7 @@
 <template name="meal_form_host">
   <div class="row">
     <div class="small-offset-1 small-10 medium-offset-2 medium-8 large-offset-3 large-6 columns">
-      <form>
+      <form id="meal-form" style="display: none; opacity: 0;">
         <div class="row">
           <div class="large-6 columns">
             <label>Date
@@ -99,7 +96,7 @@
             <label>Who can you accommodate? (check all the apply)</label>
             <input id="checkbox1" type="checkbox"><label for="checkbox1">Babies</label>
             <input id="checkbox2" type="checkbox"><label for="checkbox2">Kids</label>
-            <input id="checkbox2" type="checkbox"><label for="checkbox2">Vegetarias</label>
+            <input id="checkbox3" type="checkbox"><label for="checkbox3">Vegetarias</label>
           </div>
 
         </div>
