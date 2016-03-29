@@ -103,3 +103,13 @@
     margin-left: 5px;
   }
 }
+
+#main-page-subtitle {
+  color: white;
+  text-shadow: 3px 3px #000000;
+  font-size: 2em;
+
+  span {
+    background: rgba(125, 112, 95, 0.66);
+  }
+}
