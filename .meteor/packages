@@ -22,3 +22,5 @@ fourseven:scss
 fortawesome:fontawesome
 standard-minifier-css
 standard-minifier-js
+accounts-ui
+accounts-facebook
