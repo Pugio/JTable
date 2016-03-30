@@ -17,3 +17,6 @@ Template.body.helpers({
     return Session.get('showMealForm');
   }
 });
+
+
+fakey = new Mongo.Collection('fakey');
