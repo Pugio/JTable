@@ -4,6 +4,8 @@
       <form id="meal-form" style="display: none; opacity: 0;">
         <fieldset class="fieldset">
           <legend>{{mealFormType}} a Meal</legend>
+          <p>
+          </p>
           <div class="row">
             <div class="large-6 columns">
               <label>Date
@@ -38,16 +40,8 @@
           </div>
           <div class="row">
             <div class="large-4 columns">
-            <label>{{#if guest}}Guests (including you){{else}}Available Spots{{/if}}
-                <select>
-                  <option value="husker">1</option>
-                  <option value="starbuck">2</option>
-                  <option value="hotdog">3</option>
-                  <option value="apollo">4</option>
-                  <option value="apollo">5</option>
-                  <option value="apollo">6</option>
-                  <option value="apollo">7</option>
-                </select>
+            <label>{{#if guest}}# Guests (including you){{else}}Available Spots{{/if}}
+                <input type="number" name="num_people">
               </label>
             </div>
             <div class="large-4 columns">
@@ -57,13 +51,12 @@
             </div>
             <div class="large-4 columns">
               <label>Meat/Dairy</label>
-              <input type="checkbox" name="meat_dairy" value="Meat" id="meat_dairy_meat"><label for="meat_dairy_meat">Meat</label>
-              <input type="checkbox" name="meat_dairy" value="Dairy" id="meat_dairy_dairy"><label for="meat_dairy_dairy">Dairy</label>
+                <input type="{{meat_dairy_type}}" name="meat_dairy" value="Meat" id="meat_dairy_meat"><label for="meat_dairy_meat">Meat</label>
+                <input type="{{meat_dairy_type}}" name="meat_dairy" value="Dairy" id="meat_dairy_dairy"><label for="meat_dairy_dairy">Dairy</label>
             </div>
           </div>
 
           <div class="row">
-
             <div class="large-12 columns">
               <label>Who can you accommodate? (check all the apply)</label>
               <input id="checkbox1" type="checkbox"><label for="checkbox1">Babies</label>
@@ -74,11 +67,19 @@
           </div>
           <div class="row">
             <div class="large-12 columns">
-              <label>Anything you'd like to inform your guests? (e.g. pets, if you there are a lot of stairs)
+              <label>Anything you'd like to inform your {{#if guest}}guests{{else}}host{{/if}}? (e.g. pets, if you lots of stairs)
                 <textarea placeholder=""></textarea>
               </label>
             </div>
           </div>
+
+          <button type="button" class="{{#if currentUser}}submit-meal{{else}}login-submit-meal{{/if}} button float-right">
+            {{#if loggingIn}}
+              Logging in...
+            {{else}}
+              {{mealFormType}} a Meal
+            {{/if}}
+          </button>
         </fieldset>
       </form>
     </div>
