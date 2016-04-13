@@ -8,5 +8,5 @@ Homework for 2/29: Do the meteor [tutorial](https://www.meteor.com/tutorials/bla
 ```
 git clone git@github.com:Pugio/JTable.git
 cd JTable
-meteor
+meteor --settings settings-development.json
 ```
