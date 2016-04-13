@@ -30,6 +30,10 @@
     color: #fff;
   }
 
+  #btn-find-a-meal, #btn-host-a-meal {
+    font-size: 2rem;
+  }
+
   #main-page-title {
     font-size: 50px;
   }
@@ -73,4 +77,11 @@
   span {
     background: rgba(125, 112, 95, 0.66);
   }
+}
+
+.top-bar {
+  .logo2 {
+    padding-left: 15px;
+  }
+  
 }
