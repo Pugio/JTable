@@ -4,13 +4,28 @@
 
       <!-- off-canvas title bar for 'small' screen -->
       <div class="title-bar" data-responsive-toggle="widemenu" data-hide-for="medium">
+        <div class="title-bar-left">
+          <span class="title-bar-title">{{>logo}}</span>
+        </div>
         <div class="title-bar-right">
           {{> right_nav}}
         </div>
       </div>
 
+      <!-- off-canvas left menu -->
+      <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
+        <ul class="vertical dropdown menu" data-dropdown-menu>
+          <li><a href="left_item_1">Left item 1</a></li>
+          <li><a href="left_item_2">Left item 2</a></li>
+          <li><a href="left_item_3">Left item 3</a></li>
+        </ul>
+      </div>
+
       <!-- "wider" top-bar menu for 'medium' and up -->
       <div id="widemenu" class="top-bar">
+        <div class="top-bar-left">
+            <span class="title-bar-title"> {{>logo}} </span>
+        </div>
         <div class="top-bar-right">
           {{> right_nav}}
         </div>
@@ -28,12 +43,9 @@
 
 
 <template name="right_nav">
-  <ul class="menu">
-    <li class="notifications"><i class="fa fa-bell"></i></li>
-    <li class="messages"><i class="fa fa-envelope"></i></li>
-    <li class="user-name">Adriana Schulz</li>
-    <li><img src="user_icon.jpg" class="user-icon" /></li>
-  </ul>
+    <ul class="menu">
+        <li>{{> loginButtons}}</li>
+    </ul>
 </template>
 
 <template name="logo">
