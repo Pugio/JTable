@@ -1,0 +1,8 @@
+# WebStorm
+#  Project settings from the WebStorm IDE are stored in the .idea folder
+.idea/
+
+# Apple OS X specific files are put into the .DS_Store file
+.DS_Store
+
+
