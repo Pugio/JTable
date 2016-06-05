@@ -1,23 +1,23 @@
 Template.meal_form.rendered = function () {
   var animation_props = { duration: 700, queue: false };
-  if ($("#height-extender").length == 0)
+  if ($("#height-extender").length === 0)
     $('body').append('<div id="height-extender" style="height: 700px"></div>'); // hack to extend page height, so we can scroll all the way to the form
   
   $("#meal-form").show().animate({'opacity':'1'}, animation_props);
   $('html, body').animate({scrollTop: $("#meal-form").offset().top}, animation_props);
-}
+};
 
 function submit_meal_form() {
   // Meteor.
   alert('submitting!!');
   // Insert a task into the collection
-  Tasks.insert({
-    text,
-    createdAt: new Date(), // current time
-  });
+  // Tasks.insert({
+  //   text,
+  //   createdAt: new Date(), // current time
+  // });
   
-  // Clear form
-  target.text.value = '';
+  // // Clear form
+  // target.text.value = '';
 }
 
 Template.meal_form.events({

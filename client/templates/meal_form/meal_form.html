@@ -23,18 +23,18 @@
           </div>
           <div class="row">
             <div class="large-7 columns">
-              <label>Address
-                <input type="text" placeholder="" />
+              <label>Address {{#if guest}}(optional, to find hosts close by){{/if}}
+                <input type="text" name="address" placeholder="" />
               </label>
             </div>
             <div class="large-2 columns">
-              <label>Apt
-                <input type="text" placeholder="" />
+              <label>Apt #
+                <input type="text" name="suite" placeholder="" />
               </label>
             </div>
             <div class="large-3 columns">
              <label>Zip code
-                <input type="text" placeholder="" />
+                <input type="text" name="zip" placeholder="" />
               </label>
             </div>
           </div>
@@ -45,9 +45,11 @@
               </label>
             </div>
             <div class="large-4 columns">
+            {{#if host}}
             <label>Starting time
                 <input type="time" placeholder="12:30pm" />
               </label>
+            {{/if}}
             </div>
             <div class="large-4 columns">
               <label>Meat/Dairy</label>
@@ -58,7 +60,13 @@
 
           <div class="row">
             <div class="large-12 columns">
-              <label>Who can you accommodate? (check all the apply)</label>
+              <label>
+                {{#if guest}}
+                  You are, or are bringing (check all that apply):
+                {{else}}
+                  Who can you accommodate? (check all that apply)
+                {{/if}}
+              </label>
               <input id="checkbox1" type="checkbox"><label for="checkbox1">Babies</label>
               <input id="checkbox2" type="checkbox"><label for="checkbox2">Kids</label>
               <input id="checkbox3" type="checkbox"><label for="checkbox3">Vegetarians</label>
@@ -67,11 +75,18 @@
           </div>
           <div class="row">
             <div class="large-12 columns">
-              <label>Anything you'd like to inform your {{#if guest}}guests{{else}}host{{/if}}? (e.g. pets, if you lots of stairs)
+              <label>Anything you'd like to inform your {{#if guest}}host{{else}}guests{{/if}}? (e.g. pets, if you lots of stairs)
                 <textarea placeholder=""></textarea>
               </label>
             </div>
           </div>
+
+          {{#if currentUser}}
+          {{else}}
+            <p class="float-left">
+              (You will be asked to log in via Facebook)
+            </p>
+          {{/if}}
 
           <button type="button" class="{{#if currentUser}}submit-meal{{else}}login-submit-meal{{/if}} button float-right">
             {{#if loggingIn}}

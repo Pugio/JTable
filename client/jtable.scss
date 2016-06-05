@@ -51,6 +51,7 @@
   display: inline-block;
   margin: 1rem 0;
   font-size: 2rem;
+  
   &:before {
     content: attr(data-grouptype);
     z-index: 99999;
