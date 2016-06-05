@@ -28,39 +28,62 @@ def check_host_guest_match(host, guest):
 	return match_result
 
 def matching_algorithm(info_dict):
-    #create the list of variables
+	#create the list of variables
 
-    edge_num = -1;
-    edges = []
-    for host in info_dict["hosts"]:
-    	for guest in info_dict["guests"]:
-    		if (check_host_guest_match(host,guest)):
-    			edge_num+=1
-    			variable_name = "edge"+str(edge_num)
-    			print variable_name
-    			var = LpVariable(variable_name, 0, 1)
-    			edge = {"variable": var, "guest_id": guest["user_id"], "host_id": host["user_id"], "weight": guest["seats_requested"]}
-    			edges.append(edge)
+	edge_num = -1;
+	edges = []
+	for host in info_dict["hosts"]:
+		for guest in info_dict["guests"]:
+			if (check_host_guest_match(host,guest)):
+				edge_num+=1
+				variable_name = "edge"+str(edge_num)
+				print variable_name
+				var = LpVariable(variable_name, 0, 1, pulp.LpInteger)
+				edge = {"variable": var, "guest_id": guest["user_id"], "host_id": host["user_id"], "weight": guest["seats_requested"]}
+				edges.append(edge)
 
-    print "The total number of edges is ", len(edges)
-
-
-    prob = LpProblem("MealMatch", LpMinimize)
+	print "The total number of edges is ", len(edges)
 
 
-    # create cost function 
-    prob += 0.013*edges[0]["variable"] + 0.008*edges[1]["variable"], "Total Cost of Ingredients per can"
+	prob = LpProblem("MealMatch", LpMinimize)
 
-	# create constraints
-    prob += edges[1]["variable"] + edges[1]["variable"] == 100, "PercentagesSum"
 
-    prob.solve()
+	# create cost function 
+	objective = 0;
+	for edge in edges:
+		objective+= edge["variable"]
+	prob +=  -objective, "total number of matches"
 
-    print("Status:", LpStatus[prob.status])
+	# constraint: each guest only goes to one house
+	for guest in info_dict["guests"]:
+		guest_unique_host = 0;
+		for e in edges:
+			if(e["guest_id"] == guest["user_id"]):
+				guest_unique_host += e["variable"]
+		costraint_name = "GestToUniqueHost"+str(guest["user_id"])
+		prob += guest_unique_host <=1, costraint_name
+		#print "the guest id is  = ", guest["user_id"]
+		#print guest_single_house_constraint
 
-    for v in prob.variables():
-        print(v.name, "=", v.varValue)
+	# constraint: each host can only accept a certain number of guest
+	for host in info_dict["hosts"]:
+		host_total_guest_constraint = 0;
+		for e in edges:
+			if(e["host_id"] == host["user_id"]):
+				host_total_guest_constraint += e["variable"]*e["weight"]
+		costraint_name = "TotalGuestPerHost"+str(host["user_id"])
+		prob += host_total_guest_constraint <=host["seats_available"], costraint_name
+		
+	prob.solve()
 
+	print("Status:", 	[prob.status])
+
+	for v in prob.variables():
+		#print(v.name, "=", v.varValue)
+		if(v.varValue >0):
+			for e in edges:
+				if(e["variable"].name == v.name):	
+					print "Guest ", e["guest_id"]," will be hosted by Host ", e["host_id"]
 
 
 
